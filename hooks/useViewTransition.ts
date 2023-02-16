@@ -14,7 +14,7 @@ interface StartTransitionOptions<DataType> {
 export default function useViewTransition<DataType = undefined>({
   beforeChange,
   afterChange,
-  done
+  done,
 }: UseViewTransitionArg<DataType> = {}) {
   const startResolverRef = useRef<(value?: unknown) => void>();
   const beforeChangeRef = useRef(beforeChange);
@@ -33,7 +33,7 @@ export default function useViewTransition<DataType = undefined>({
 
   return async ({
     classNames = [],
-    data
+    data,
   }: StartTransitionOptions<DataType> = {}): Promise<void> => {
     if (!("startViewTransition" in document)) return;
 
@@ -44,7 +44,7 @@ export default function useViewTransition<DataType = undefined>({
       const transition = document.startViewTransition(async () => {
         resolve();
         // Wait for next update
-        await new Promise((resolve) => (startResolverRef.current = resolve));
+        // await new Promise((resolve) => (startResolverRef.current = resolve));
       });
 
       transitionRef.current = transition;

@@ -9,7 +9,9 @@ const TransitionButton = () => {
     const startViewTransition = useViewTransition();
 
     const onIncrementClick = async () => {
-        await startViewTransition();
+        await startViewTransition({
+            classNames: ["count-transition"],
+        });
         setCount(count + 1);
     };
 

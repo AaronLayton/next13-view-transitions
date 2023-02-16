@@ -7,6 +7,11 @@
   min-height: 100vh;
 }
 
+.navigation {
+  display: flex;
+  gap: 5px;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -16,6 +21,9 @@
   width: 100%;
   z-index: 2;
   font-family: var(--font-mono);
+
+  view-transition-name: header;
+  contain: layout;
 }
 
 .description a {
@@ -74,6 +82,7 @@
 
 .center {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -97,7 +106,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -125,7 +134,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
